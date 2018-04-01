@@ -33,18 +33,22 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+ 
+    if( savePDF ){
+        ofBeginSaveScreenAsPDF("screenshot-"+ofGetTimestampString()+".pdf", false);
+    }
     
     mGui.draw();
 //    font.drawString("I <3 DM", 150, 150);
 
     ofPushMatrix();
     ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+    ofFill();
+    ofSetColor(ofColor::white);
     jitter.draw();
     ofPopMatrix();
     
-    if( savePDF ){
-        ofBeginSaveScreenAsPDF("screenshot-"+ofGetTimestampString()+".pdf", false);
-    }
+
 
     if( savePDF ){
         ofEndSaveScreenAsPDF();
@@ -106,6 +110,8 @@ void ofApp::keyPressed(int key){
             ofEndSaveScreenAsPDF();
            
         }
+    
+
 }
 
 //--------------------------------------------------------------
