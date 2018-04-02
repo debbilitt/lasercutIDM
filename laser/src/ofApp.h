@@ -21,8 +21,12 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-        void onChangeJitter(float & newJitterValue);
-    
+   
+    void onChangeJitter(float & newJitterValue);
+     void linesPressed();
+     void gridPressed();
+     void sqGridPressed();
+     void diamondPressed();
     
     
         ofTrueTypeFont font;
@@ -31,14 +35,16 @@ class ofApp : public ofBaseApp{
     
     
    //four sliders controlling each letter
-        ofxFloatSlider iSlider;
-        ofxFloatSlider heartSlider;
-        ofxFloatSlider dSlider;
-        ofxFloatSlider mSlider;
+        ofxButton randLines;
+        ofxButton grid;
+        ofxButton sqGrid;
+        ofxButton diamond;
     
         ofPolyline jitter;
     
     bool savePDF;
+    
+    bool drawGrid;
     
 
 		
