@@ -35,10 +35,10 @@ class ofApp : public ofBaseApp{
     
     
    //four sliders controlling each letter
-        ofxButton randLines;
-        ofxButton grid;
-        ofxButton sqGrid;
-        ofxButton diamond;
+        ofxToggle randLines;
+        ofxToggle grid;
+        ofxToggle sqGrid;
+        ofxToggle diamond;
     
         ofPolyline jitter;
     
