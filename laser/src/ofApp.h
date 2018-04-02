@@ -21,13 +21,8 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-   
-    void onChangeJitter(float & newJitterValue);
-     void linesPressed();
-     void gridPressed();
-     void sqGridPressed();
-     void diamondPressed();
-    
+        void onChangeJitter(float & newJitterValue);
+  
     
         ofTrueTypeFont font;
         ofxPanel mGui;

@@ -3,17 +3,22 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     mGui.setup("Control Booth");
+//    mJitterSlider.setup("Jittery Letters", 0.0f, 0.0f, 5.0f);
+    
+//    mJitterSlider.addListener(this, &ofApp::onChangeJitter);
+
 
     randLines.setup("Random Lines", false);
     grid.setup("Grid", false);
     sqGrid.setup("Square Grid", false);
     diamond.setup("Diamonds", false);
-
+    
     
     mGui.add(&randLines);
     mGui.add(&grid);
     mGui.add(&sqGrid);
     mGui.add(&diamond);
+    mGui.add(&mJitterSlider);
 
 
     //load a custom font
@@ -42,14 +47,17 @@ void ofApp::draw(){
     
     /* Draw random lines */
     
+    ofPushMatrix();
     if(randLines){
-     
+
         ofPolyline p;
        
         p.clear();
-        ofSetColor(0);
-        ofNoFill();
         
+        ofSetLineWidth(1.0);
+        ofSetColor(0);
+        ofFill();
+
         for (int i = 0; i < 100; i++) {
             ofPoint x = ofPoint(ofRandom(50, ofGetWidth()), ofRandom(50, ofGetHeight()));
             ofPoint y = ofPoint(ofRandom(50, ofGetWidth()), ofRandom(50, ofGetHeight()));
@@ -57,6 +65,7 @@ void ofApp::draw(){
             }
     
     }
+    ofPopMatrix();
     
     /* Draw grid lines*/
     
@@ -203,6 +212,7 @@ ofPopMatrix();
 
     
         mGui.draw();
+
     
 }
 
@@ -248,16 +258,6 @@ void ofApp::onChangeJitter(float & newJitterValue){
     
 }
 
-//--------------------------------------------------------------
-void ofApp::linesPressed(){
-    
-    
-    
-
-    
-    
-    
-}
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
@@ -284,6 +284,7 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
+
 
 }
 
